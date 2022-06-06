@@ -8,7 +8,7 @@ function pickOnly(data, include) {
   return results
 }
 
-function filterSecurityProperties(data) {
+function filterSecurityProperties(data, fields) {
   let results = data
 
   if (typeof results === 'object') {
@@ -18,7 +18,7 @@ function filterSecurityProperties(data) {
       'scripts' in results &&
       'main' in results
     ) {
-      results = pickOnly(results, ['name', 'version'])
+      results = pickOnly(results, fields)
     }
   }
 
@@ -30,7 +30,7 @@ module.exports = function (source) {
 
   var value = typeof source === "string" ? JSON.parse(source) : source;
 
-  value = filterSecurityProperties(value)
+  value = filterSecurityProperties(value, ['name', 'version', 'hydro', 'nuz'])
   value = JSON.stringify(value)
     .replace(/\u2028/g, '\\u2028')
     .replace(/\u2029/g, '\\u2029');
