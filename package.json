@@ -1,6 +1,6 @@
 {
   "name": "sec-json-loader",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Hieu Lam",
   "description": "sec json loader module for webpack, forked from `json-loader`.",
   "license": "MIT",
